@@ -196,26 +196,26 @@ template:
           {% set r1 = states('sensor.hoymiles_inv0_serial_reg1') | int(0) %}
           {% set r2 = states('sensor.hoymiles_inv0_serial_reg2') | int(0) %}
           {% set r3 = states('sensor.hoymiles_inv0_port_and_serial_reg3') | int(0) %}
-          {% set s0 = r0 & 0xFF %}
-          {% set s1 = (r1 >> 8) & 0xFF %}
-          {% set s2 = r1 & 0xFF %}
-          {% set s3 = (r2 >> 8) & 0xFF %}
-          {% set s4 = r2 & 0xFF %}
-          {% set s5 = (r3 >> 8) & 0xFF %}
+          {% set s0 = r0 % 256 %}
+          {% set s1 = r1 // 256 %}
+          {% set s2 = r1 % 256 %}
+          {% set s3 = r2 // 256 %}
+          {% set s4 = r2 % 256 %}
+          {% set s5 = r3 // 256 %}
           {{ '%02x%02x%02x%02x%02x%02x' | format(s0, s1, s2, s3, s4, s5) }}
 
       - name: Hoymiles inv0 port number
         unique_id: hoymiles_inv0_port_number
-        state: "{{ states('sensor.hoymiles_inv0_port_and_serial_reg3') | int(0) & 0xFF }}"
+        state: "{{ states('sensor.hoymiles_inv0_port_and_serial_reg3') | int(0) % 256 }}"
 
       - name: Hoymiles inv0 data type decoded
         unique_id: hoymiles_inv0_data_type_decoded
-        state: "{{ states('sensor.hoymiles_inv0_data_type') | int(0) & 0xFF }}"
+        state: "{{ states('sensor.hoymiles_inv0_data_type') | int(0) % 256 }}"
 
       - name: Hoymiles inv0 link status
         unique_id: hoymiles_inv0_link_status
         state: >-
-          {{ (states('sensor.hoymiles_inv0_link_and_reserved') | int(0) >> 8) & 0xFF }}
+          {{ states('sensor.hoymiles_inv0_link_and_reserved') | int(0) // 256 }}
 
       - name: Hoymiles plant PV power
         unique_id: hoymiles_plant_pv_power
@@ -224,7 +224,7 @@ template:
         state_class: measurement
         icon: mdi:solar-power
         state: >-
-          {% set link = (states('sensor.hoymiles_inv0_link_and_reserved') | int(0) >> 8) & 0xFF %}
+          {% set link = states('sensor.hoymiles_inv0_link_and_reserved') | int(0) // 256 %}
           {% if link == 1 %}
             {{ states('sensor.hoymiles_inv0_pv_power') | float(0) }}
           {% else %}
@@ -238,7 +238,7 @@ template:
         state_class: total_increasing
         icon: mdi:solar-power-variant
         state: >-
-          {% set link = (states('sensor.hoymiles_inv0_link_and_reserved') | int(0) >> 8) & 0xFF %}
+          {% set link = states('sensor.hoymiles_inv0_link_and_reserved') | int(0) // 256 %}
           {% if link == 1 %}
             {{ states('sensor.hoymiles_inv0_today_production') | int(0) }}
           {% else %}
@@ -252,7 +252,7 @@ template:
         state_class: total_increasing
         icon: mdi:counter
         state: >-
-          {% set link = (states('sensor.hoymiles_inv0_link_and_reserved') | int(0) >> 8) & 0xFF %}
+          {% set link = states('sensor.hoymiles_inv0_link_and_reserved') | int(0) // 256 %}
           {% if link == 1 %}
             {{ states('sensor.hoymiles_inv0_total_production') | int(0) }}
           {% else %}
@@ -264,7 +264,7 @@ template:
         unique_id: hoymiles_inv0_online
         device_class: connectivity
         state: >-
-          {{ ((states('sensor.hoymiles_inv0_link_and_reserved') | int(0) >> 8) & 0xFF) == 1 }}
+          {{ (states('sensor.hoymiles_inv0_link_and_reserved') | int(0) // 256) == 1 }}
 
       - name: Hoymiles plant alarm
         unique_id: hoymiles_plant_alarm

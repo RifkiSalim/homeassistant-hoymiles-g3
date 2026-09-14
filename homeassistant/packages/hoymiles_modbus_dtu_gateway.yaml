@@ -41,10 +41,10 @@ template:
           {% set r0 = states('sensor.hoymiles_dtu_serial_raw_0') | int(0) %}
           {% set r1 = states('sensor.hoymiles_dtu_serial_raw_1') | int(0) %}
           {% set r2 = states('sensor.hoymiles_dtu_serial_raw_2') | int(0) %}
-          {% set b0 = (r0 >> 8) & 0xFF %}
-          {% set b1 = r0 & 0xFF %}
-          {% set b2 = (r1 >> 8) & 0xFF %}
-          {% set b3 = r1 & 0xFF %}
-          {% set b4 = (r2 >> 8) & 0xFF %}
-          {% set b5 = r2 & 0xFF %}
+          {% set b0 = r0 // 256 %}
+          {% set b1 = r0 % 256 %}
+          {% set b2 = r1 // 256 %}
+          {% set b3 = r1 % 256 %}
+          {% set b4 = r2 // 256 %}
+          {% set b5 = r2 % 256 %}
           {{ '%02x%02x%02x%02x%02x%02x' | format(b0, b1, b2, b3, b4, b5) }}
