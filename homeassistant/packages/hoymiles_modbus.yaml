@@ -1,4 +1,6 @@
 # Register map derived from https://github.com/wasilukm/hoymiles_modbus
+# ⚠️ DTU-Pro / microinverter plant map (holding @ 0x1000). Do NOT use on HIS-5L-G3 hybrid
+# on 485_2 — use packages/hoymiles_g3_hybrid.yaml instead.
 # Inverter index i: base = 4096 + i * 40 (0x1000 + i * 0x28)
 #
 # Connection: point `hoymiles_host` at your external DTU / Modbus-TCP gateway IP

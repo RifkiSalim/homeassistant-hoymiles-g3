@@ -65,9 +65,9 @@ Optional files:
 
 ## Install
 
-**HIS / HIT G3 hybrid (your 485_2 + external DTU):** use `homeassistant/packages/hoymiles_g3_hybrid_modbus.yaml` — **not** `hoymiles_modbus.yaml`. See [docs/troubleshooting-unknown.md](docs/troubleshooting-unknown.md) if sensors show `unknown`.
+**HIS / HIT G3 hybrid (your 485_2 + external DTU):** use `homeassistant/packages/hoymiles_g3_hybrid.yaml` — **remove** `hoymiles_modbus.yaml` first. Wrong map symptoms: PV ≈ **0.1 V**, frequency ≈ **2 Hz**, PV power far too low (e.g. **60 W** instead of **~1.6 kW**).
 
-**DTU-Pro microinverter plant (Ethernet, 0x1000 holding map):** use `homeassistant/packages/hoymiles_modbus.yaml`.
+**DTU-Pro microinverter plant (Ethernet, 0x1000 holding map):** use `homeassistant/packages/hoymiles_modbus.yaml` only.
 
 1. Copy the correct package into your Home Assistant `config/packages/` directory (only one of the two above).
 
@@ -88,7 +88,7 @@ Optional files:
 
 4. Restart Home Assistant and check **Settings → Devices & services → Modbus**.
 
-5. Optional: import `homeassistant/dashboards/hoymiles.yaml` as a dashboard view.
+5. Optional dashboard: `homeassistant/dashboards/hoymiles_g3.yaml` (G3) or `hoymiles.yaml` (DTU-Pro map).
 
 ## Multiple inverters
 
