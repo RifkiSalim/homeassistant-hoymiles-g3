@@ -52,7 +52,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -65,7 +65,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -76,7 +76,7 @@ modbus:
         address: 29
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -89,7 +89,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -102,7 +102,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -113,7 +113,7 @@ modbus:
         address: 32
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -126,7 +126,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -139,7 +139,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -150,7 +150,7 @@ modbus:
         address: 35
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -163,7 +163,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -176,7 +176,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -187,7 +187,7 @@ modbus:
         address: 38
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -200,7 +200,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -213,7 +213,7 @@ modbus:
         data_type: int32
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -224,7 +224,7 @@ modbus:
         address: 50
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -237,7 +237,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -250,7 +250,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -263,7 +263,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -276,7 +276,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -289,7 +289,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -302,7 +302,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -315,7 +315,7 @@ modbus:
         data_type: uint16
         scale: 0.01
         precision: 2
-        unit_of_measurement: Hz
+        unit_of_measurement: "Hz"
         device_class: frequency
         state_class: measurement
         scan_interval: 10
@@ -328,7 +328,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -341,7 +341,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -354,7 +354,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -367,7 +367,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -380,7 +380,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -393,7 +393,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -404,7 +404,7 @@ modbus:
         address: 74
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -415,7 +415,7 @@ modbus:
         address: 75
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -426,7 +426,7 @@ modbus:
         address: 76
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -437,7 +437,7 @@ modbus:
         address: 78
         input_type: input
         data_type: int16
-        unit_of_measurement: Var
+        unit_of_measurement: "Var"
         state_class: measurement
         scan_interval: 10
 
@@ -447,7 +447,7 @@ modbus:
         address: 79
         input_type: input
         data_type: int16
-        unit_of_measurement: Var
+        unit_of_measurement: "Var"
         state_class: measurement
         scan_interval: 10
 
@@ -457,7 +457,7 @@ modbus:
         address: 80
         input_type: input
         data_type: int16
-        unit_of_measurement: Var
+        unit_of_measurement: "Var"
         state_class: measurement
         scan_interval: 10
 
@@ -469,7 +469,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -482,7 +482,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -495,7 +495,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -508,7 +508,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -521,7 +521,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -534,7 +534,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -545,7 +545,7 @@ modbus:
         address: 88
         input_type: input
         data_type: int16
-        unit_of_measurement: VA
+        unit_of_measurement: "VA"
         state_class: measurement
         scan_interval: 10
 
@@ -555,7 +555,7 @@ modbus:
         address: 89
         input_type: input
         data_type: int16
-        unit_of_measurement: VA
+        unit_of_measurement: "VA"
         state_class: measurement
         scan_interval: 10
 
@@ -565,7 +565,7 @@ modbus:
         address: 90
         input_type: input
         data_type: int16
-        unit_of_measurement: VA
+        unit_of_measurement: "VA"
         state_class: measurement
         scan_interval: 10
 
@@ -575,7 +575,7 @@ modbus:
         address: 92
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -586,7 +586,7 @@ modbus:
         address: 93
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -597,7 +597,7 @@ modbus:
         address: 94
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -610,7 +610,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -623,7 +623,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -636,7 +636,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -649,7 +649,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -662,7 +662,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -675,7 +675,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -686,7 +686,7 @@ modbus:
         address: 109
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -697,7 +697,7 @@ modbus:
         address: 110
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -708,7 +708,7 @@ modbus:
         address: 111
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -721,7 +721,7 @@ modbus:
         data_type: int16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -732,7 +732,7 @@ modbus:
         address: 242
         input_type: input
         data_type: uint16
-        unit_of_measurement: kOhm
+        unit_of_measurement: "kOhm"
         scan_interval: 10
 
       - name: Hoymiles Residual Current
@@ -741,7 +741,7 @@ modbus:
         address: 243
         input_type: input
         data_type: int16
-        unit_of_measurement: mA
+        unit_of_measurement: "mA"
         scan_interval: 10
 
       - name: Hoymiles Inverter Thermistor Temp
@@ -779,7 +779,7 @@ modbus:
         data_type: uint16
         scale: 0.01
         precision: 2
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -792,7 +792,7 @@ modbus:
         data_type: uint16
         scale: 0.01
         precision: 2
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -805,7 +805,7 @@ modbus:
         data_type: uint16
         scale: 0.01
         precision: 2
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -818,7 +818,7 @@ modbus:
         data_type: uint16
         scale: 0.01
         precision: 2
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -829,7 +829,7 @@ modbus:
         address: 121
         input_type: input
         data_type: uint16
-        unit_of_measurement: r/m
+        unit_of_measurement: "r/m"
         scan_interval: 10
 
       - name: Hoymiles Fan 2 Speed
@@ -838,7 +838,7 @@ modbus:
         address: 122
         input_type: input
         data_type: uint16
-        unit_of_measurement: r/m
+        unit_of_measurement: "r/m"
         scan_interval: 10
 
       - name: Hoymiles Fan 3 Speed
@@ -847,7 +847,7 @@ modbus:
         address: 123
         input_type: input
         data_type: uint16
-        unit_of_measurement: r/m
+        unit_of_measurement: "r/m"
         scan_interval: 10
 
       - name: Hoymiles DC Inject A
@@ -856,7 +856,7 @@ modbus:
         address: 125
         input_type: input
         data_type: int16
-        unit_of_measurement: mA
+        unit_of_measurement: "mA"
         scan_interval: 10
 
       - name: Hoymiles DC Inject B
@@ -865,7 +865,7 @@ modbus:
         address: 126
         input_type: input
         data_type: int16
-        unit_of_measurement: mA
+        unit_of_measurement: "mA"
         scan_interval: 10
 
       - name: Hoymiles DC Inject C
@@ -874,7 +874,7 @@ modbus:
         address: 127
         input_type: input
         data_type: int16
-        unit_of_measurement: mA
+        unit_of_measurement: "mA"
         scan_interval: 10
 
       - name: Hoymiles Safety DSP Firmware Ver
@@ -893,7 +893,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -914,7 +914,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -927,7 +927,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -940,7 +940,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -953,7 +953,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -966,7 +966,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -979,7 +979,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -992,7 +992,7 @@ modbus:
         data_type: uint16
         scale: 0.01
         precision: 2
-        unit_of_measurement: Hz
+        unit_of_measurement: "Hz"
         device_class: frequency
         state_class: measurement
         scan_interval: 10
@@ -1003,7 +1003,7 @@ modbus:
         address: 1808
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -1014,7 +1014,7 @@ modbus:
         address: 1810
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -1025,7 +1025,7 @@ modbus:
         address: 1812
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -1036,7 +1036,7 @@ modbus:
         address: 1814
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -1047,7 +1047,7 @@ modbus:
         address: 1816
         input_type: input
         data_type: int32
-        unit_of_measurement: Var
+        unit_of_measurement: "Var"
         state_class: measurement
         scan_interval: 10
 
@@ -1057,7 +1057,7 @@ modbus:
         address: 1818
         input_type: input
         data_type: int32
-        unit_of_measurement: Var
+        unit_of_measurement: "Var"
         state_class: measurement
         scan_interval: 10
 
@@ -1067,7 +1067,7 @@ modbus:
         address: 1820
         input_type: input
         data_type: int32
-        unit_of_measurement: Var
+        unit_of_measurement: "Var"
         state_class: measurement
         scan_interval: 10
 
@@ -1077,7 +1077,7 @@ modbus:
         address: 1822
         input_type: input
         data_type: int32
-        unit_of_measurement: Var
+        unit_of_measurement: "Var"
         state_class: measurement
         scan_interval: 10
 
@@ -1137,7 +1137,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -1150,7 +1150,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -1163,7 +1163,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -1176,7 +1176,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -1189,7 +1189,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -1202,7 +1202,7 @@ modbus:
         data_type: int16
         scale: 0.01
         precision: 2
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -1215,7 +1215,7 @@ modbus:
         data_type: uint16
         scale: 0.01
         precision: 2
-        unit_of_measurement: Hz
+        unit_of_measurement: "Hz"
         device_class: frequency
         state_class: measurement
         scan_interval: 10
@@ -1226,7 +1226,7 @@ modbus:
         address: 1858
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -1237,7 +1237,7 @@ modbus:
         address: 1860
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -1248,7 +1248,7 @@ modbus:
         address: 1862
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -1259,7 +1259,7 @@ modbus:
         address: 1864
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -1270,7 +1270,7 @@ modbus:
         address: 1866
         input_type: input
         data_type: int32
-        unit_of_measurement: Var
+        unit_of_measurement: "Var"
         state_class: measurement
         scan_interval: 10
 
@@ -1280,7 +1280,7 @@ modbus:
         address: 1868
         input_type: input
         data_type: int32
-        unit_of_measurement: Var
+        unit_of_measurement: "Var"
         state_class: measurement
         scan_interval: 10
 
@@ -1290,7 +1290,7 @@ modbus:
         address: 1870
         input_type: input
         data_type: int32
-        unit_of_measurement: Var
+        unit_of_measurement: "Var"
         state_class: measurement
         scan_interval: 10
 
@@ -1300,7 +1300,7 @@ modbus:
         address: 1872
         input_type: input
         data_type: int32
-        unit_of_measurement: Var
+        unit_of_measurement: "Var"
         state_class: measurement
         scan_interval: 10
 
@@ -1384,7 +1384,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         scan_interval: 10
 
@@ -1394,7 +1394,7 @@ modbus:
         address: 1909
         input_type: input
         data_type: uint16
-        unit_of_measurement: %
+        unit_of_measurement: "%"
         device_class: battery
         state_class: measurement
         scan_interval: 10
@@ -1405,7 +1405,7 @@ modbus:
         address: 1910
         input_type: input
         data_type: uint16
-        unit_of_measurement: %
+        unit_of_measurement: "%"
         scan_interval: 10
 
       - name: Hoymiles Battery Voltage (BMS)
@@ -1416,7 +1416,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -1429,7 +1429,7 @@ modbus:
         data_type: int32
         scale: 0.1
         precision: 1
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -1440,7 +1440,7 @@ modbus:
         address: 1914
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 10
@@ -1453,7 +1453,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -1466,7 +1466,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: A
+        unit_of_measurement: "A"
         device_class: current
         state_class: measurement
         scan_interval: 10
@@ -1479,7 +1479,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -1492,7 +1492,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: V
+        unit_of_measurement: "V"
         device_class: voltage
         state_class: measurement
         scan_interval: 10
@@ -1527,7 +1527,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1540,7 +1540,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1553,7 +1553,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1566,7 +1566,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1579,7 +1579,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1592,7 +1592,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1605,7 +1605,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1618,7 +1618,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1631,7 +1631,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1644,7 +1644,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1657,7 +1657,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1670,7 +1670,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1683,7 +1683,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1696,7 +1696,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1709,7 +1709,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1722,7 +1722,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1735,7 +1735,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1748,7 +1748,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1761,7 +1761,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1774,7 +1774,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1787,7 +1787,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1800,7 +1800,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1813,7 +1813,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1826,7 +1826,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1839,7 +1839,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1852,7 +1852,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1865,7 +1865,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1878,7 +1878,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1891,7 +1891,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1904,7 +1904,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1917,7 +1917,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1930,7 +1930,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1943,7 +1943,7 @@ modbus:
         data_type: uint32
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1956,7 +1956,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1969,7 +1969,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1982,7 +1982,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -1995,7 +1995,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2008,7 +2008,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2021,7 +2021,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2034,7 +2034,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2047,7 +2047,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2060,7 +2060,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2073,7 +2073,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2086,7 +2086,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2099,7 +2099,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2112,7 +2112,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2125,7 +2125,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2138,7 +2138,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2151,7 +2151,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2164,7 +2164,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2177,7 +2177,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2190,7 +2190,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2203,7 +2203,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2216,7 +2216,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2229,7 +2229,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2242,7 +2242,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2255,7 +2255,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2268,7 +2268,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2281,7 +2281,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2294,7 +2294,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2307,7 +2307,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2320,7 +2320,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2333,7 +2333,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2346,7 +2346,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2359,7 +2359,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2372,7 +2372,7 @@ modbus:
         data_type: uint16
         scale: 0.1
         precision: 1
-        unit_of_measurement: kWh
+        unit_of_measurement: "kWh"
         device_class: energy
         state_class: total_increasing
         scan_interval: 60
@@ -2383,7 +2383,7 @@ modbus:
         address: 2150
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2394,7 +2394,7 @@ modbus:
         address: 2152
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2405,7 +2405,7 @@ modbus:
         address: 2153
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2416,7 +2416,7 @@ modbus:
         address: 2154
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2427,7 +2427,7 @@ modbus:
         address: 2155
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2438,7 +2438,7 @@ modbus:
         address: 2158
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2449,7 +2449,7 @@ modbus:
         address: 2159
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2460,7 +2460,7 @@ modbus:
         address: 2160
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2471,7 +2471,7 @@ modbus:
         address: 2161
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2482,7 +2482,7 @@ modbus:
         address: 2162
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2493,7 +2493,7 @@ modbus:
         address: 2165
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2504,7 +2504,7 @@ modbus:
         address: 2166
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2515,7 +2515,7 @@ modbus:
         address: 2167
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2526,7 +2526,7 @@ modbus:
         address: 2168
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2537,7 +2537,7 @@ modbus:
         address: 2169
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2548,7 +2548,7 @@ modbus:
         address: 2170
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2559,7 +2559,7 @@ modbus:
         address: 2171
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2570,7 +2570,7 @@ modbus:
         address: 2172
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2581,7 +2581,7 @@ modbus:
         address: 2173
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2592,7 +2592,7 @@ modbus:
         address: 2174
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2603,7 +2603,7 @@ modbus:
         address: 2175
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2614,7 +2614,7 @@ modbus:
         address: 2176
         input_type: input
         data_type: int16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2625,7 +2625,7 @@ modbus:
         address: 2177
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2636,7 +2636,7 @@ modbus:
         address: 2178
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2647,7 +2647,7 @@ modbus:
         address: 2179
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2658,7 +2658,7 @@ modbus:
         address: 2180
         input_type: input
         data_type: uint16
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 60
@@ -2677,7 +2677,7 @@ modbus:
         address: 30001
         input_type: input
         data_type: uint32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 30
@@ -2688,7 +2688,7 @@ modbus:
         address: 30003
         input_type: input
         data_type: uint32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 30
@@ -2699,7 +2699,7 @@ modbus:
         address: 30005
         input_type: input
         data_type: uint32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 30
@@ -2710,7 +2710,7 @@ modbus:
         address: 30007
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 30
@@ -2721,7 +2721,7 @@ modbus:
         address: 30009
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 30
@@ -2732,7 +2732,7 @@ modbus:
         address: 30011
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 30
@@ -2743,7 +2743,7 @@ modbus:
         address: 30013
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 30
@@ -2754,7 +2754,7 @@ modbus:
         address: 30015
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 30
@@ -2765,7 +2765,7 @@ modbus:
         address: 30017
         input_type: input
         data_type: int32
-        unit_of_measurement: W
+        unit_of_measurement: "W"
         device_class: power
         state_class: measurement
         scan_interval: 30
@@ -2784,7 +2784,7 @@ modbus:
         address: 30020
         input_type: input
         data_type: uint16
-        unit_of_measurement: %
+        unit_of_measurement: "%"
         device_class: battery
         scan_interval: 30
 

@@ -94,7 +94,8 @@ def emit_sensor(reg, lines: list[str]) -> None:
         if prec:
             lines.append(f"        precision: {prec}")
     if reg.unit:
-        lines.append(f"        unit_of_measurement: {reg.unit}")
+        # Quote units — bare `%` is invalid YAML.
+        lines.append(f'        unit_of_measurement: "{reg.unit}"')
     dc = device_class(reg.unit, reg.key)
     if dc:
         lines.append(f"        device_class: {dc}")
@@ -133,7 +134,7 @@ def main() -> None:
             "  - sensor:",
             "      - name: Hoymiles PV total power (computed)",
             "        unique_id: hoymiles_g3_pv_total_power_computed",
-            "        unit_of_measurement: W",
+            "        unit_of_measurement: "W"",
             "        device_class: power",
             "        state_class: measurement",
             "        state: >",
