@@ -1,0 +1,37 @@
+title: Hoymiles
+path: hoymiles
+icon: mdi:solar-power
+cards:
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: >
+          Live data from your Hoymiles plant via Modbus TCP
+          ([wasilukm/hoymiles_modbus](https://github.com/wasilukm/hoymiles_modbus) register map).
+      - type: glance
+        title: Plant
+        entities:
+          - entity: sensor.hoymiles_plant_pv_power
+          - entity: sensor.hoymiles_plant_today_production
+          - entity: sensor.hoymiles_plant_total_production
+          - entity: binary_sensor.hoymiles_plant_alarm
+      - type: entities
+        title: Inverter 0
+        entities:
+          - entity: sensor.hoymiles_inv0_serial
+          - entity: binary_sensor.hoymiles_inv0_online
+          - entity: sensor.hoymiles_inv0_pv_power
+          - entity: sensor.hoymiles_inv0_pv_voltage
+          - entity: sensor.hoymiles_inv0_pv_current
+          - entity: sensor.hoymiles_inv0_grid_voltage
+          - entity: sensor.hoymiles_inv0_grid_frequency
+          - entity: sensor.hoymiles_inv0_temperature
+          - entity: sensor.hoymiles_inv0_today_production
+          - entity: sensor.hoymiles_inv0_total_production
+          - entity: sensor.hoymiles_inv0_operating_status
+          - entity: sensor.hoymiles_inv0_alarm_code
+          - entity: sensor.hoymiles_inv0_alarm_count
+      - type: entities
+        title: DTU
+        entities:
+          - entity: sensor.hoymiles_dtu_serial
