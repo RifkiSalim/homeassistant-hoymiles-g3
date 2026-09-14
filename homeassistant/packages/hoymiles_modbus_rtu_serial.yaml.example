@@ -1,0 +1,19 @@
+# Example: Home Assistant on the same LAN as the gateway, but you plug a USB RS485
+# adapter directly into the external DTU / inverter 485_2 bus instead of Modbus TCP.
+# Rename to .yaml and disable the TCP hub in hoymiles_modbus.yaml to avoid duplicates.
+#
+# Typical Hoymiles RS485: 9600 baud, 8 data bits, no parity, 1 stop bit (8-N-1).
+
+modbus:
+  - name: hoymiles_rs485
+    type: serial
+    method: rtu
+    port: /dev/ttyUSB0
+    baudrate: 9600
+    bytesize: 8
+    parity: N
+    stopbits: 1
+    timeout: 5
+    retries: 3
+    delay: 1
+    # Copy the `sensors:` list from hoymiles_modbus.yaml here (same addresses/slave).

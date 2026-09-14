@@ -1,0 +1,50 @@
+# Optional — only when the Modbus slave is a Hoymiles DTU-Pro/Pro-S (Ethernet or
+# its RS485 port in "Hoymiles Modbus" mode). Skip this file for a bare RS485_2
+# gateway that only forwards the hybrid inverter's own registers.
+
+modbus:
+  - name: hoymiles_gateway
+    type: tcp
+    host: !secret hoymiles_host
+    port: !secret hoymiles_port
+    sensors:
+      - name: Hoymiles DTU serial raw 0
+        unique_id: hoymiles_dtu_serial_reg0
+        slave: !secret hoymiles_unit
+        address: 8192
+        input_type: holding
+        data_type: uint16
+        scan_interval: 300
+
+      - name: Hoymiles DTU serial raw 1
+        unique_id: hoymiles_dtu_serial_reg1
+        slave: !secret hoymiles_unit
+        address: 8193
+        input_type: holding
+        data_type: uint16
+        scan_interval: 300
+
+      - name: Hoymiles DTU serial raw 2
+        unique_id: hoymiles_dtu_serial_reg2
+        slave: !secret hoymiles_unit
+        address: 8194
+        input_type: holding
+        data_type: uint16
+        scan_interval: 300
+
+template:
+  - sensor:
+      - name: Hoymiles DTU serial
+        unique_id: hoymiles_dtu_serial
+        icon: mdi:identifier
+        state: >-
+          {% set r0 = states('sensor.hoymiles_dtu_serial_raw_0') | int(0) %}
+          {% set r1 = states('sensor.hoymiles_dtu_serial_raw_1') | int(0) %}
+          {% set r2 = states('sensor.hoymiles_dtu_serial_raw_2') | int(0) %}
+          {% set b0 = (r0 >> 8) & 0xFF %}
+          {% set b1 = r0 & 0xFF %}
+          {% set b2 = (r1 >> 8) & 0xFF %}
+          {% set b3 = r1 & 0xFF %}
+          {% set b4 = (r2 >> 8) & 0xFF %}
+          {% set b5 = r2 & 0xFF %}
+          {{ '%02x%02x%02x%02x%02x%02x' | format(b0, b1, b2, b3, b4, b5) }}

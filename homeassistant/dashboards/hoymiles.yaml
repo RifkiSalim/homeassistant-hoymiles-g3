@@ -32,6 +32,10 @@ cards:
           - entity: sensor.hoymiles_inv0_alarm_code
           - entity: sensor.hoymiles_inv0_alarm_count
       - type: entities
-        title: DTU
+        title: DTU (optional package)
         entities:
           - entity: sensor.hoymiles_dtu_serial
+        visibility:
+          - condition: state
+            entity: sensor.hoymiles_dtu_serial
+            state_not: unavailable
