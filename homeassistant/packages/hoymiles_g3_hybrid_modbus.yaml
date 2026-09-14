@@ -1,0 +1,189 @@
+# Hoymiles G3 hybrid (HIS/HIT-xxL-G3) via external DTU on RS485_2 / Modbus TCP.
+# Register map: input registers (FC04), aligned with community G3 map
+# (see hoymiles-g3-modbus-tcp registers.py). Use THIS file instead of
+# hoymiles_modbus.yaml for HIS-5L-G3 — the DTU-Pro 0x1000 holding map does not apply.
+#
+# Grid voltage L1: input register 62 (scale 0.1 V), NOT holding 4102.
+
+modbus:
+  - name: hoymiles_gateway
+    type: tcp
+    host: !secret hoymiles_host
+    port: !secret hoymiles_port
+    timeout: 5
+    retries: 3
+    delay: 1
+    sensors:
+      - name: Hoymiles work status
+        unique_id: hoymiles_g3_workstatus
+        slave: !secret hoymiles_unit
+        address: 0
+        input_type: input
+        data_type: uint16
+        scan_interval: 30
+
+      - name: Hoymiles PV1 voltage
+        unique_id: hoymiles_g3_pv1_voltage
+        slave: !secret hoymiles_unit
+        address: 27
+        input_type: input
+        data_type: uint16
+        scale: 0.1
+        precision: 1
+        unit_of_measurement: V
+        device_class: voltage
+        state_class: measurement
+        scan_interval: 10
+
+      - name: Hoymiles PV1 current
+        unique_id: hoymiles_g3_pv1_current
+        slave: !secret hoymiles_unit
+        address: 28
+        input_type: input
+        data_type: int16
+        scale: 0.01
+        precision: 2
+        unit_of_measurement: A
+        device_class: current
+        state_class: measurement
+        scan_interval: 10
+
+      - name: Hoymiles PV1 power
+        unique_id: hoymiles_g3_pv1_power
+        slave: !secret hoymiles_unit
+        address: 29
+        input_type: input
+        data_type: uint16
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+        scan_interval: 10
+
+      - name: Hoymiles PV2 voltage
+        unique_id: hoymiles_g3_pv2_voltage
+        slave: !secret hoymiles_unit
+        address: 30
+        input_type: input
+        data_type: uint16
+        scale: 0.1
+        precision: 1
+        unit_of_measurement: V
+        device_class: voltage
+        state_class: measurement
+        scan_interval: 10
+
+      - name: Hoymiles PV2 power
+        unique_id: hoymiles_g3_pv2_power
+        slave: !secret hoymiles_unit
+        address: 32
+        input_type: input
+        data_type: uint16
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+        scan_interval: 10
+
+      - name: Hoymiles grid voltage
+        unique_id: hoymiles_g3_grid_voltage
+        slave: !secret hoymiles_unit
+        address: 62
+        input_type: input
+        data_type: uint16
+        scale: 0.1
+        precision: 1
+        unit_of_measurement: V
+        device_class: voltage
+        state_class: measurement
+        scan_interval: 10
+
+      - name: Hoymiles grid frequency
+        unique_id: hoymiles_g3_grid_frequency
+        slave: !secret hoymiles_unit
+        address: 66
+        input_type: input
+        data_type: uint16
+        scale: 0.01
+        precision: 2
+        unit_of_measurement: Hz
+        state_class: measurement
+        scan_interval: 10
+
+      - name: Hoymiles inverter active power A
+        unique_id: hoymiles_g3_inv_active_power_a
+        slave: !secret hoymiles_unit
+        address: 74
+        input_type: input
+        data_type: int16
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+        scan_interval: 10
+
+      - name: Hoymiles battery SOC
+        unique_id: hoymiles_g3_battery_soc
+        slave: !secret hoymiles_unit
+        address: 1909
+        input_type: input
+        data_type: uint16
+        unit_of_measurement: "%"
+        device_class: battery
+        state_class: measurement
+        scan_interval: 30
+
+      - name: Hoymiles battery voltage BMS
+        unique_id: hoymiles_g3_battery_voltage
+        slave: !secret hoymiles_unit
+        address: 1911
+        input_type: input
+        data_type: uint16
+        scale: 0.1
+        precision: 1
+        unit_of_measurement: V
+        device_class: voltage
+        state_class: measurement
+        scan_interval: 30
+
+      - name: Hoymiles battery power BMS
+        unique_id: hoymiles_g3_battery_power
+        slave: !secret hoymiles_unit
+        address: 1914
+        input_type: input
+        data_type: int32
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+        scan_interval: 10
+
+      - name: Hoymiles grid active power
+        unique_id: hoymiles_g3_grid_active_power
+        slave: !secret hoymiles_unit
+        address: 2165
+        input_type: input
+        data_type: int16
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+        scan_interval: 10
+
+      - name: Hoymiles PV total power energy block
+        unique_id: hoymiles_g3_pv_total_power
+        slave: !secret hoymiles_unit
+        address: 2150
+        input_type: input
+        data_type: uint16
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+        scan_interval: 10
+
+template:
+  - sensor:
+      - name: Hoymiles PV power total
+        unique_id: hoymiles_g3_pv_power_total
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+        icon: mdi:solar-power
+        state: >-
+          {{ (states('sensor.hoymiles_pv1_power') | float(0))
+             + (states('sensor.hoymiles_pv2_power') | float(0)) }}

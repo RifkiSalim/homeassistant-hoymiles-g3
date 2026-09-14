@@ -65,7 +65,11 @@ Optional files:
 
 ## Install
 
-1. Copy `homeassistant/packages/hoymiles_modbus.yaml` into your Home Assistant `config/packages/` directory (or merge into `configuration.yaml`).
+**HIS / HIT G3 hybrid (your 485_2 + external DTU):** use `homeassistant/packages/hoymiles_g3_hybrid_modbus.yaml` — **not** `hoymiles_modbus.yaml`. See [docs/troubleshooting-unknown.md](docs/troubleshooting-unknown.md) if sensors show `unknown`.
+
+**DTU-Pro microinverter plant (Ethernet, 0x1000 holding map):** use `homeassistant/packages/hoymiles_modbus.yaml`.
+
+1. Copy the correct package into your Home Assistant `config/packages/` directory (only one of the two above).
 
 2. Enable packages if you have not already:
 
