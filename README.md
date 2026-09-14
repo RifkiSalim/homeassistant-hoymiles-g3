@@ -94,6 +94,34 @@ Optional files:
 
 Duplicate the `inverter_0` sensor block in `hoymiles_modbus.yaml` and add **40** to every `address` (4096 → 4136 → 4176, …). Extend the template sensors at the bottom to sum additional entities.
 
+## Troubleshooting `unknown` sensors
+
+**Hoymiles inv0 grid voltage** (and other Modbus entities) stay **`unknown`** when Home Assistant never gets a successful read from the gateway.
+
+From your log, these were the main problems:
+
+1. **Template errors (fixed in repo)** — If you still see `unexpected char '&'` on startup, replace `packages/hoymiles_modbus.yaml` with the latest copy (uses `% 256` and `// 256`, not `&` / `>>`). Run **Check configuration** before restart.
+
+2. **No TCP connection** — `Failed to connect [Errno 113] … ('10.1.1.107', 8886)` means the host is **unreachable** from Home Assistant (wrong IP, VLAN/firewall, device off, or bad route). Fix networking first; Errno **113** is not a wrong register map.
+
+3. **Wrong port** — Standard Modbus TCP is **`502`**. Port **`8886`** in the log is from the separate **`hoymiles_modbus_tcp`** custom integration, not typical Modbus. In `secrets.yaml` set `hoymiles_port` to whatever your **external DTU manual** specifies (often `502`).
+
+4. **Two Hoymiles integrations at once** — You also have **`hoymiles_modbus_tcp`** (UI integration) and this **YAML Modbus** package. They can fight over the same IP and confuse debugging. Pick one:
+   - **This repo:** YAML `modbus` + `template` only → disable/remove the **Hoymiles Modbus TCP** custom integration entry.
+   - **Custom integration only:** remove `packages/hoymiles_modbus.yaml`.
+
+5. **Bootstrap timeout** — `Setup timed out … ModbusBaseEntity.async_await_connection()` means the native Modbus hub never connected within 5 minutes (same root cause as above).
+
+**Quick test** (from the Home Assistant host, e.g. Terminal add-on):
+
+```bash
+nc -zv 10.1.1.107 502
+```
+
+Replace IP/port with your `hoymiles_host` / `hoymiles_port`. If this fails, Home Assistant cannot read the inverter either.
+
+After TCP works, if values are still wrong (not `unknown`), try another `hoymiles_unit` (1, or 101–254) or confirm the **0x1000** map matches your 485_2 gateway (see map-fit note above).
+
 ## DTU response quirk
 
 Some DTUs send Modbus TCP frames with an incorrect byte-count field. The Python library patches that in software; Home Assistant’s Modbus stack may fail on those devices. If polls time out while `hoymiles_modbus` works from Python, use the [hoymiles-mqtt](https://github.com/wasilukm/hoymiles-mqtt) bridge or a small Modbus proxy that normalizes responses.
