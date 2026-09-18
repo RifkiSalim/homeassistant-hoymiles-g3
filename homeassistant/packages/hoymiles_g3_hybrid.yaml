@@ -1,7 +1,8 @@
 # Hoymiles G3 hybrid (HIS/HIT-xxL-G3) — native Modbus INPUT registers
+# Connect: Home Assistant --Modbus TCP--> DTS/DTU stick Ethernet (port 502), NOT Wi-Fi.
 # Register map: hoymiles-g3-modbus-tcp/registers.py (community, verified on HIT-15L-G3)
 #
-# DISABLE packages/hoymiles_modbus.yaml (DTU-Pro 0x1000 map) before using this file.
+# Do not load packages/hoymiles_modbus.yaml (DTU-Pro 0x1000 holding map) on hybrids.
 
 modbus:
   - name: hoymiles_gateway

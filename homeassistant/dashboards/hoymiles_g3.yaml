@@ -4,7 +4,7 @@ icon: mdi:solar-power
 cards:
   - type: markdown
     content: >
-      G3 hybrid Modbus (input registers). Disable `hoymiles_modbus.yaml` if values were wrong.
+      G3 hybrid via DTS stick Ethernet Modbus TCP. Use `hoymiles_g3_hybrid.yaml` only.
   - type: glance
     title: Live
     entities:

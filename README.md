@@ -1,132 +1,89 @@
-# Hoymiles → Home Assistant (native Modbus TCP)
+# Hoymiles G3 hybrid → Home Assistant (native Modbus TCP)
 
-Home Assistant configuration that exposes every field decoded by [wasilukm/hoymiles_modbus](https://github.com/wasilukm/hoymiles_modbus) using the built-in [Modbus integration](https://www.home-assistant.io/integrations/modbus/) only (no custom component).
+Home Assistant **YAML only** (built-in [Modbus](https://www.home-assistant.io/integrations/modbus/) integration) for **HIS / HIT-xxL-G3** hybrids using the factory **data transfer stick (DTS / “DTU stick”)** on **Ethernet**.
 
-## What this maps
+No custom component, no RS485 gateway (e.g. NE2-D14PE) required for Modbus if the stick is on LAN via **RJ45**.
 
-The Python library talks to a device that speaks **Hoymiles DTU-Pro Modbus** on **port 502**. In your setup that device is the **external DTU** on the inverter’s **485_2** port (COM2), with Home Assistant reaching it over **Modbus TCP** on the DTU’s Ethernet/Wi‑Fi interface (or via a USB RS485 adapter — see below).
-
-| Block | Start address (dec) | Registers read | Fields |
-|-------|---------------------|----------------|--------|
-| Inverter *n* | `4096 + n × 40` (`0x1000`) | 20 | PV, grid, energy, temperature, alarms, link status, … |
-| DTU serial (optional) | `8192` (`0x2000`) | 3 | 6-byte DTU serial — only on real DTU-Pro gateways |
-
-Per-inverter layout (byte offsets from [ `datatypes.py` ](https://github.com/wasilukm/hoymiles_modbus/blob/main/hoymiles_modbus/datatypes.py)):
-
-| Field | Register offset from inverter base | Type | Scale |
-|-------|-----------------------------------|------|-------|
-| Data type | +0 | uint16 (low byte) | 1 |
-| Serial number | +0 … +2 | 6 bytes (template) | — |
-| Port number | +3 (low byte of reg) | — | 1 |
-| PV voltage | +4 | uint16 | 0.1 → V |
-| PV current | +5 | uint16 | 0.01 (HM/HIS) or 0.1 (MI, serial `10…`) |
-| Grid voltage | +6 | uint16 | 0.1 → V |
-| Grid frequency | +7 | uint16 | 0.01 → Hz |
-| PV power | +8 | uint16 | 0.1 → W |
-| Today production | +9 | uint16 | Wh |
-| Total production | +10 | uint32 | Wh |
-| Temperature | +12 | int16 | 0.1 → °C |
-| Operating status | +13 | uint16 | — |
-| Alarm code | +14 | uint16 | — |
-| Alarm count | +15 | uint16 | — |
-| Link status | +16 (high byte) | 0/1 | online when 1 |
-
-Plant totals in the library sum **link_status = 1** inverters only; template sensors in this package do the same.
-
-## External DTU on **485_2** (your wiring)
-
-On the **HIS-5L-G3**, COM2 includes a **485_2** pair labelled for third‑party / VPP control (see the HIS user manual). A common pattern is:
+## Recommended wiring (your setup)
 
 ```text
-Home Assistant  --Modbus TCP-->  external DTU (Ethernet)  --RS485_2-->  HIS-5L-G3
+Home Assistant  --Modbus TCP :502-->  DTS-WL-G3 (Ethernet)  --internal link-->  HIS-5L-G3
 ```
 
-Configure secrets as follows:
+Important details from community G3 Modbus work ([hoymiles-g3-modbus-tcp](https://pypi.org/project/hoymiles-g3-modbus-tcp/)):
 
-| Secret | Value |
+| Topic | Detail |
 |--------|--------|
-| `hoymiles_host` | IP of the **external DTU / TCP gateway**, not the inverter |
-| `hoymiles_port` | Usually `502` |
-| `hoymiles_unit` | Modbus **slave ID** on the RS485 side (try `1` first; DTU‑Pro RS485 “Hoymiles Modbus” mode often uses **101–254**) |
+| **Modbus TCP** | Available on the stick’s **Ethernet** port (port **502**, unit id **1** typical). |
+| **Wi‑Fi** | Cloud/app use; **Modbus TCP is not exposed on Wi‑Fi** on these sticks. |
+| **Register map** | G3 **input registers (FC04)**, addresses from the G3 catalog (e.g. PV1 voltage **27**, grid frequency **66**, battery SOC **1909**) — **not** the DTU‑Pro **0x1000** holding map. |
+| **Package to use** | `homeassistant/packages/hoymiles_g3_hybrid.yaml` |
 
-RS485 wiring: use the **485_2 A/B** terminals on COM2; match polarity with the DTU manual. Many Hoymiles RS485 links use **9600 8‑N‑1** — set the same on the gateway and in the inverter/VPP settings if exposed in S‑Miles Toolkit.
+Set `secrets.yaml`:
 
-**Map fit:** [wasilukm/hoymiles_modbus](https://github.com/wasilukm/hoymiles_modbus) documents the **DTU‑Pro microinverter plant** layout starting at **0x1000**. It does **not** include hybrid‑only data (battery SOC, grid import/export, EPS, etc.). After install, confirm the map matches your bus:
+```yaml
+hoymiles_host: 192.168.x.x   # DHCP reservation for the stick’s Ethernet IP
+hoymiles_port: 502
+hoymiles_unit: 1
+```
 
-1. Read holding register **4100** (PV voltage, scale 0.1 V) — expect a plausible AC/PV voltage when the sun is up.
-2. If reads fail or values are nonsense, your gateway is probably exposing the **native G3 hybrid map** on 485_2 instead; you would need that register table (not this 0x1000 block) while still using native Modbus in HA.
-
-Optional files:
-
-- `packages/hoymiles_modbus_dtu_gateway.yaml` — DTU serial @ **0x2000** (enable only for a real Hoymiles DTU‑Pro class gateway).
-- `packages/hoymiles_modbus_rtu_serial.yaml.example` — USB RS485 on the HA host instead of Modbus TCP.
-
-**PV current scale:** HM/HIS-style inverters use **0.01 A** (default in `packages/hoymiles_modbus.yaml`). MI series (serial starting with `10`) use **0.1 A** — change `scale` on the PV current sensor if needed.
+Use a **wired Ethernet** path from the stick to the same LAN as Home Assistant (stick → switch/router → HA). Do not point HA at the stick’s Wi‑Fi address if you need Modbus.
 
 ## Install
 
-**HIS / HIT G3 hybrid (your 485_2 + external DTU):** use `homeassistant/packages/hoymiles_g3_hybrid.yaml` — **remove** `hoymiles_modbus.yaml` first. Wrong map symptoms: PV ≈ **0.1 V**, frequency ≈ **2 Hz**, PV power far too low (e.g. **60 W** instead of **~1.6 kW**).
-
-**DTU-Pro microinverter plant (Ethernet, 0x1000 holding map):** use `homeassistant/packages/hoymiles_modbus.yaml` only.
-
-1. Copy the correct package into your Home Assistant `config/packages/` directory (only one of the two above).
-
-2. Enable packages if you have not already:
+1. Copy `homeassistant/packages/hoymiles_g3_hybrid.yaml` → `config/packages/`.
+2. **Do not** load `hoymiles_modbus.yaml` for a G3 hybrid (that file is for **DTU‑Pro microinverter** plants at holding register **4096**; wrong map causes bogus values like **0.1 V** / **2 Hz**).
+3. Enable packages in `configuration.yaml`:
 
    ```yaml
    homeassistant:
      package_dir: !include_dir_named packages
    ```
 
-3. Set secrets (copy from `homeassistant/secrets.yaml.example`):
+4. Merge `homeassistant/secrets.yaml.example` into `secrets.yaml`.
+5. **Check configuration** → restart.
+6. Optional dashboard: `homeassistant/dashboards/hoymiles_g3.yaml`.
 
-   ```yaml
-   hoymiles_host: 192.168.1.50   # external DTU / Modbus TCP gateway on 485_2
-   hoymiles_port: 502
-   hoymiles_unit: 1              # RS485 slave ID on the bus
-   ```
+Disable duplicate Hoymiles **custom** integrations (e.g. `hoymiles_modbus_tcp`) if you use this YAML, so one client polls the stick.
 
-4. Restart Home Assistant and check **Settings → Devices & services → Modbus**.
+## Register map source (G3 hybrid)
 
-5. Optional dashboard: `homeassistant/dashboards/hoymiles_g3.yaml` (G3) or `hoymiles.yaml` (DTU-Pro map).
-
-## Multiple inverters
-
-Duplicate the `inverter_0` sensor block in `hoymiles_modbus.yaml` and add **40** to every `address` (4096 → 4136 → 4176, …). Extend the template sensors at the bottom to sum additional entities.
-
-## Troubleshooting `unknown` sensors
-
-**Hoymiles inv0 grid voltage** (and other Modbus entities) stay **`unknown`** when Home Assistant never gets a successful read from the gateway.
-
-From your log, these were the main problems:
-
-1. **Template errors (fixed in repo)** — If you still see `unexpected char '&'` on startup, replace `packages/hoymiles_modbus.yaml` with the latest copy (uses `% 256` and `// 256`, not `&` / `>>`). Run **Check configuration** before restart.
-
-2. **No TCP connection** — `Failed to connect [Errno 113] … ('10.1.1.107', 8886)` means the host is **unreachable** from Home Assistant (wrong IP, VLAN/firewall, device off, or bad route). Fix networking first; Errno **113** is not a wrong register map.
-
-3. **Wrong port** — Standard Modbus TCP is **`502`**. Port **`8886`** in the log is from the separate **`hoymiles_modbus_tcp`** custom integration, not typical Modbus. In `secrets.yaml` set `hoymiles_port` to whatever your **external DTU manual** specifies (often `502`).
-
-4. **Two Hoymiles integrations at once** — You also have **`hoymiles_modbus_tcp`** (UI integration) and this **YAML Modbus** package. They can fight over the same IP and confuse debugging. Pick one:
-   - **This repo:** YAML `modbus` + `template` only → disable/remove the **Hoymiles Modbus TCP** custom integration entry.
-   - **Custom integration only:** remove `packages/hoymiles_modbus.yaml`.
-
-5. **Bootstrap timeout** — `Setup timed out … ModbusBaseEntity.async_await_connection()` means the native Modbus hub never connected within 5 minutes (same root cause as above).
-
-**Quick test** (from the Home Assistant host, e.g. Terminal add-on):
+Sensors in `hoymiles_g3_hybrid.yaml` are generated from **`hoymiles_g3_modbus_tcp/registers.py`** ([PyPI](https://pypi.org/project/hoymiles-g3-modbus-tcp/), community catalog aligned with hardware such as HIT-15L-G3). Regenerate after catalog updates:
 
 ```bash
-nc -zv 10.1.1.107 502
+pip install hoymiles-g3-modbus-tcp
+python3 scripts/generate_g3_ha_modbus_yaml.py
 ```
 
-Replace IP/port with your `hoymiles_host` / `hoymiles_port`. If this fails, Home Assistant cannot read the inverter either.
+That map is independent of [wasilukm/hoymiles_modbus](https://github.com/wasilukm/hoymiles_modbus), which documents **DTU‑Pro/Pro-S** microinverter telemetry at **0x1000**.
 
-After TCP works, if values are still wrong (not `unknown`), try another `hoymiles_unit` (1, or 101–254) or confirm the **0x1000** map matches your 485_2 gateway (see map-fit note above).
+## Optional: other hardware paths
 
-## DTU response quirk
+| Path | Package |
+|------|---------|
+| **DTU‑Pro / Pro-S** microinverter plant (Ethernet, holding **0x1000**) | `hoymiles_modbus.yaml` |
+| DTU serial @ **0x2000** on DTU‑Pro | `hoymiles_modbus_dtu_gateway.yaml` |
+| USB **RS485** on the HA host (RTU, not TCP) | `hoymiles_modbus_rtu_serial.yaml.example` |
+| Third‑party **485_2** gateway (legacy / VPP port) | Same **G3 input** map if the gateway forwards FC04 unchanged; otherwise use gateway docs |
 
-Some DTUs send Modbus TCP frames with an incorrect byte-count field. The Python library patches that in software; Home Assistant’s Modbus stack may fail on those devices. If polls time out while `hoymiles_modbus` works from Python, use the [hoymiles-mqtt](https://github.com/wasilukm/hoymiles-mqtt) bridge or a small Modbus proxy that normalizes responses.
+You do **not** need an external Modbus TCP-to-RS485 device on **485_2** if the **DTS Ethernet Modbus** path works.
+
+## Troubleshooting
+
+**`unknown` sensors** — HA cannot open TCP to `hoymiles_host:hoymiles_port` (wrong IP, Wi‑Fi instead of Ethernet, firewall, stick offline). From the HA host:
+
+```bash
+nc -zv YOUR_STICK_IP 502
+```
+
+**Wrong numbers** — Usually means `hoymiles_modbus.yaml` (DTU‑Pro map) is still loaded; switch to `hoymiles_g3_hybrid.yaml` only.
+
+**YAML error `found character '%'`** — Use the latest `hoymiles_g3_hybrid.yaml` (units quoted, e.g. `unit_of_measurement: "%"`).
+
+**Template `&` / `>>` errors** — Only in `hoymiles_modbus.yaml` templates; G3 package does not use those.
 
 ## References
 
-- Register logic: https://github.com/wasilukm/hoymiles_modbus  
+- G3 register catalog: https://pypi.org/project/hoymiles-g3-modbus-tcp/
+- DTU‑Pro map (microinverters): https://github.com/wasilukm/hoymiles_modbus
 - Home Assistant Modbus: https://www.home-assistant.io/integrations/modbus/
