@@ -2,29 +2,19 @@
 
 Custom integration for **Hoymiles G3 hybrid** inverters (HIS / HIT-xxL-G3 and similar). Polls the inverter over **Modbus TCP** using the community [hoymiles-g3-modbus-tcp](https://pypi.org/project/hoymiles-g3-modbus-tcp/) register catalog.
 
-**Repository:** [rifki-salim/homeassistant-hoymiles-g3](https://cursor.com/codebase/rifki-salim/homeassistant-hoymiles-g3)
+**Repository:** https://github.com/RifkiSalim/homeassistant-hoymiles-g3
 
 ## Install
 
 ### HACS
 
-HACS installs from **public GitHub** repositories only. After this project is on GitHub (for example `https://github.com/rifki-salim/homeassistant-hoymiles-g3`):
-
-1. HACS → **Integrations** → **⋮** → **Custom repositories** → add `rifki-salim/homeassistant-hoymiles-g3` (category **Integration**).
+1. HACS → **Integrations** → **⋮** → **Custom repositories** → add `RifkiSalim/homeassistant-hoymiles-g3` (category **Integration**).
 2. Install **Hoymiles** and restart Home Assistant.
 3. **Settings → Devices & services → Add integration → Hoymiles**.
 
-Until then, use **Manual** install below (works with a public Origin clone URL as well).
-
 ### Manual
 
-Clone or download the repository, copy `custom_components/hoymiles` into your Home Assistant `config/custom_components/` directory, and restart.
-
-Public Origin clone (after you set visibility on the [codebase page](https://cursor.com/codebase/rifki-salim/homeassistant-hoymiles-g3)):
-
-```text
-https://origin.cursor.com/rifki-salim/homeassistant-hoymiles-g3.git
-```
+Clone https://github.com/RifkiSalim/homeassistant-hoymiles-g3, copy `custom_components/hoymiles` into your Home Assistant `config/custom_components/` directory, and restart.
 
 Integration options and connection notes: [custom_components/hoymiles/README.md](custom_components/hoymiles/README.md).
 

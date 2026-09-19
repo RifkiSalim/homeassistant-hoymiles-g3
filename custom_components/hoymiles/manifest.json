@@ -3,7 +3,7 @@
   "name": "Hoymiles",
   "codeowners": ["@rifki-salim"],
   "config_flow": true,
-  "documentation": "https://cursor.com/codebase/rifki-salim/homeassistant-hoymiles-g3",
+  "documentation": "https://github.com/RifkiSalim/homeassistant-hoymiles-g3",
   "integration_type": "device",
   "iot_class": "local_polling",
   "requirements": ["hoymiles-g3-modbus-tcp==0.3.0"],
