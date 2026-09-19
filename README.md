@@ -1,61 +1,47 @@
 # Hoymiles G3 hybrid → Home Assistant
 
-Open-source **Home Assistant** support for **HIS / HIT-xxL-G3** hybrids using the community [hoymiles-g3-modbus-tcp](https://pypi.org/project/hoymiles-g3-modbus-tcp/) register catalog.
+Home Assistant **custom integration** for **Hoymiles G3 hybrid** inverters (HIS / HIT-xxL-G3 and similar). It uses the community [hoymiles-g3-modbus-tcp](https://pypi.org/project/hoymiles-g3-modbus-tcp/) library for Modbus TCP polling and register decoding.
 
-## Recommended: custom integration (Hoymiles)
+## Install
 
-Install the **`custom_components/hoymiles`** integration (HACS or manual copy). It adds the **Hoymiles** brand in the UI, auto-detects MPPT/battery/meter capabilities, and exposes configurable sensor sets and polling options.
+### HACS
 
-Works the same over:
+1. Add this repository as a [custom repository](https://hacs.xyz/docs/faq/custom_repositories/) (category: **Integration**).
+2. Install **Hoymiles** and restart Home Assistant.
+3. **Settings → Devices & services → Add integration → Hoymiles**.
 
-```text
-Home Assistant  --Modbus TCP :502-->  DTS-WL-G3 (Ethernet)  -->  inverter
-Home Assistant  --Modbus TCP :502-->  RS485 gateway on 485_2  -->  inverter
-```
+### Manual
 
-See [custom_components/hoymiles/README.md](custom_components/hoymiles/README.md) for setup and options.
+Copy `custom_components/hoymiles` into your Home Assistant `config/custom_components/` directory and restart.
 
-**Do not** run this integration together with another Hoymiles Modbus client (YAML package or other custom integrations) on the same host/port.
+Details and options: [custom_components/hoymiles/README.md](custom_components/hoymiles/README.md).
 
-## Legacy: YAML Modbus package
+## Supported hardware
 
-The repo still includes a generated **native Modbus** YAML package if you prefer not to use a custom integration:
+- **Inverters:** G3 hybrid models (e.g. HIS-5L-G3, HIT-xxL-G3).
+- **Modbus paths (same integration, same entities):**
+  - **DTS-WL-G3** data stick on **Ethernet** (typical port **502**, unit **1**).
+  - **External Modbus TCP gateway** on the inverter **485_2** port (e.g. NE2-D14PE).
 
-| File | Use case |
-|------|-----------|
-| `homeassistant/packages/hoymiles_g3_hybrid.yaml` | G3 hybrid **input register** map (FC04) |
-| `homeassistant/packages/hoymiles_modbus.yaml` | DTU‑Pro **microinverter** map @ **0x1000** — **not** for G3 hybrids |
+Use one Modbus client only — do not poll the same host/port from another integration at the same time.
 
-Regenerate the G3 YAML after catalog updates:
-
-```bash
-pip install hoymiles-g3-modbus-tcp
-python3 scripts/generate_g3_ha_modbus_yaml.py
-```
-
-Set `secrets.yaml` from `homeassistant/secrets.yaml.example` (`hoymiles_host`, port **502**, unit **1**).
-
-## Wiring notes (DTS Ethernet)
+## Wiring (DTS Ethernet)
 
 | Topic | Detail |
 |--------|--------|
-| **Modbus TCP** | Stick **Ethernet** port, typically **502**, unit **1**. |
-| **Wi‑Fi** | App/cloud; Modbus TCP is not on Wi‑Fi for these sticks. |
-| **Register map** | G3 **input** catalog (e.g. PV1 V @ **27**, grid Hz @ **66**) — not DTU‑Pro **0x1000**. |
-
-Use a wired path: stick → LAN → Home Assistant.
+| Modbus TCP | Stick **Ethernet** port, usually **502**, unit **1**. |
+| Wi‑Fi | App/cloud; Modbus TCP is not on Wi‑Fi for these sticks. |
+| LAN | Stick → wired LAN → Home Assistant. |
 
 ## Troubleshooting
 
-**Cannot connect** — Verify IP/port from the HA host (`nc -zv HOST 502`). Use the stick’s **Ethernet** IP, not Wi‑Fi.
+**Cannot connect** — From the HA host: `nc -zv INVERTER_OR_STICK_IP 502`. Confirm Ethernet IP, not Wi‑Fi.
 
-**Wrong values** — Wrong register map (DTU‑Pro YAML on a G3 hybrid) or a second client polling the same device.
+**Stale or missing sensors** — Increase timeout/retries in integration options; check firewall and duplicate Modbus clients.
 
 ## References
 
-- PyPI library: https://pypi.org/project/hoymiles-g3-modbus-tcp/
-- DTU‑Pro map (microinverters): https://github.com/wasilukm/hoymiles_modbus
-- Home Assistant Modbus: https://www.home-assistant.io/integrations/modbus/
+- Register catalog: https://pypi.org/project/hoymiles-g3-modbus-tcp/
 
 ## License
 

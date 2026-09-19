@@ -47,10 +47,6 @@ Changing options reloads the integration automatically.
 
 Entities are grouped under one device with manufacturer **Hoymiles**, model detected from the inverter (e.g. HIS-5L-G3).
 
-## Migration from YAML Modbus package
-
-If you use `homeassistant/packages/hoymiles_g3_hybrid.yaml` in this repo, **disable that package** and remove duplicate custom integrations before adding **Hoymiles**, so a single client polls the inverter.
-
 ## Dependencies
 
 `hoymiles-g3-modbus-tcp==0.3.0` is installed automatically by Home Assistant when the integration loads.

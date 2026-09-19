@@ -1,8 +1,0 @@
-# Minimal snippet — merge into your existing configuration.yaml
-
-homeassistant:
-  packages: !include_dir_named packages
-
-# If you already use package_dir instead:
-# homeassistant:
-#   package_dir: !include_dir_named packages
