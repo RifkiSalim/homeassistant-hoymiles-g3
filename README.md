@@ -2,6 +2,59 @@
 
 Home Assistant **custom integration** for **Hoymiles G3 hybrid** inverters (HIS / HIT-xxL-G3 and similar). It uses the community [hoymiles-g3-modbus-tcp](https://pypi.org/project/hoymiles-g3-modbus-tcp/) library for Modbus TCP polling and register decoding.
 
+## Sync to GitHub
+
+This project is hosted on **Cursor Origin** at [homeassistant-hoymiles-g3](https://cursor.com/codebase/rifki-salim/homeassistant-hoymiles-g3). GitHub is not connected yet (`mirrorStatus: no-mirror`). To publish the same history on GitHub:
+
+### Prerequisites
+
+1. **Cursor ↔ GitHub** — In Cursor, connect the [GitHub integration](https://cursor.com/settings) (GitHub App with access to your account/org).
+2. **Origin CLI** on your machine (clone URL uses your login):
+
+```bash
+curl -fsSL https://downloads.cursor.com/origin/install.sh | sh
+origin auth login
+```
+
+If `origin` is not found:
+
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+Origin CLI reference: https://cursor.com/docs/origin/cli
+
+### Option A — Push to a new GitHub repo (simple)
+
+Create an **empty** repository on GitHub named `homeassistant-hoymiles-g3` (no README/license/gitignore), then:
+
+```bash
+origin repo clone rifki-salim/homeassistant-hoymiles-g3
+cd homeassistant-hoymiles-g3
+git remote add github https://github.com/rifki-salim/homeassistant-hoymiles-g3.git
+git push -u github main
+```
+
+Use your GitHub username/org in the `github` remote URL if it differs.
+
+### Option B — Link GitHub as source of truth in Cursor (ongoing sync)
+
+After the repo exists on GitHub with `main` pushed:
+
+1. Open https://cursor.com/codebase
+2. Choose **Sync from GitHub**
+3. Select `rifki-salim/homeassistant-hoymiles-g3`
+
+GitHub becomes the source of truth; `git push` to the Origin HTTPS remote goes to GitHub and Origin updates afterward. See [Mirror a GitHub repository](https://cursor.com/docs/origin/mirror-github).
+
+To keep pushing to **both** remotes from one `origin` remote:
+
+```bash
+git remote set-url --add --push origin https://github.com/rifki-salim/homeassistant-hoymiles-g3.git
+git remote set-url --add --push origin https://origin.cursor.com/rifki-salim/homeassistant-hoymiles-g3.git
+```
+
 ## Install
 
 ### HACS
