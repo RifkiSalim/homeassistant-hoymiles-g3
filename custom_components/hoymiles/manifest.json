@@ -1,0 +1,11 @@
+{
+  "domain": "hoymiles",
+  "name": "Hoymiles",
+  "codeowners": ["@rifki-salim"],
+  "config_flow": true,
+  "documentation": "https://github.com/rifki-salim/hoymiles-homeassistant",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "requirements": ["hoymiles-g3-modbus-tcp==0.3.0"],
+  "version": "0.1.0"
+}

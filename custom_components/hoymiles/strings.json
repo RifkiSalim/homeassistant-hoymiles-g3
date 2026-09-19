@@ -1,0 +1,41 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Hoymiles inverter",
+        "description": "Use the same Modbus TCP settings whether you connect through a DTS-WL-G3 Ethernet stick or an external TCP-to-RS485 gateway on the inverter 485_2 port.",
+        "data": {
+          "connection_type": "Connection path",
+          "host": "Host or IP address",
+          "port": "Modbus TCP port",
+          "unit": "Modbus unit ID"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not connect or detect the inverter. Check host, port, firewall, and that only one client polls the device at a time."
+    },
+    "abort": {
+      "already_configured": "This inverter is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Hoymiles options",
+        "data": {
+          "sensor_profile": "Sensor set",
+          "fast_scan_interval": "Fast poll interval (seconds)",
+          "slow_scan_interval": "Slow poll interval (seconds)",
+          "include_settings": "Expose configuration (holding) registers as sensors",
+          "include_generator": "Include generator port sensors",
+          "include_diagnostics": "Include inverter diagnostic sensors",
+          "timeout": "Modbus timeout (seconds)",
+          "read_retries": "Read retries per block",
+          "max_block": "Maximum registers per Modbus read",
+          "max_energy_rate": "Max plausible energy counter step (kWh/h)"
+        }
+      }
+    }
+  }
+}

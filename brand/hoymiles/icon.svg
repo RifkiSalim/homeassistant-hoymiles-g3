@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Hoymiles">
+  <rect width="256" height="256" rx="48" fill="#0B3D2E"/>
+  <path fill="#F4B942" d="M128 44L196 88v80l-68 44-68-44V88z"/>
+  <path fill="#0B3D2E" d="M128 72l44 26v52l-44 28-44-28V98z"/>
+  <circle cx="128" cy="128" r="18" fill="#F4B942"/>
+</svg>
