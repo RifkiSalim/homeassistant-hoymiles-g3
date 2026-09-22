@@ -14,6 +14,7 @@ from homeassistant.components.sensor import (
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     PERCENTAGE,
+    UnitOfApparentPower,
     UnitOfElectricCurrent,
     UnitOfElectricPotential,
     UnitOfEnergy,
@@ -79,7 +80,7 @@ def _native_unit(reg: Register) -> str | None:
         "Hz": UnitOfFrequency.HERTZ,
         "kWh": UnitOfEnergy.KILO_WATT_HOUR,
         "Var": UnitOfReactivePower.VOLT_AMPERE_REACTIVE,
-        "VA": UnitOfPower.VOLT_AMPERE,
+        "VA": UnitOfApparentPower.VOLT_AMPERE,
         "%": PERCENTAGE,
         "°C": UnitOfTemperature.CELSIUS,
     }
