@@ -13,16 +13,15 @@ Only the **host, port, and unit ID** change between paths; register decoding and
 
 ## Install
 
-### HACS (recommended)
-
-1. Add this repository as a [custom repository](https://hacs.xyz/docs/faq/custom_repositories/) (category: **Integration**).
-2. Install **Hoymiles**.
-3. Restart Home Assistant.
-4. **Settings → Devices & services → Add integration → Hoymiles**.
+Home Assistant discovers integrations under **`config/custom_components/`** after a restart. This integration does not require HACS.
 
 ### Manual
 
-Copy the `custom_components/hoymiles` folder into your HA `config/custom_components/` directory and restart.
+Copy `custom_components/hoymiles` into your HA `config/custom_components/` directory and restart. Then **Settings → Devices & services → Add integration → Hoymiles**.
+
+### HACS (optional)
+
+If you use the [Home Assistant Community Store](https://hacs.xyz/), add this GitHub repo as a custom repository (category **Integration**), install **Hoymiles**, and restart. HACS’s “custom repository” UI is a HACS feature, not a core Home Assistant feature.
 
 ## Configuration
 
