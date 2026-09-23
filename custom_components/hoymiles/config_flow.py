@@ -12,6 +12,7 @@ from homeassistant.const import CONF_HOST, CONF_PORT
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.exceptions import HomeAssistantError
+from homeassistant.helpers import selector
 
 from .const import (
     CONF_CONNECTION_TYPE,
@@ -96,11 +97,21 @@ class HoymilesConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     CONNECTION_TYPES
                 ),
                 vol.Required(CONF_HOST): str,
-                vol.Required(CONF_PORT, default=DEFAULT_PORT): vol.All(
-                    vol.Coerce(int), vol.Range(min=1, max=65535)
+                vol.Required(CONF_PORT, default=DEFAULT_PORT): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=1,
+                        max=65535,
+                        step=1,
+                        mode=selector.NumberSelectorMode.BOX,
+                    )
                 ),
-                vol.Required(CONF_UNIT, default=DEFAULT_UNIT): vol.All(
-                    vol.Coerce(int), vol.Range(min=1, max=247)
+                vol.Required(CONF_UNIT, default=DEFAULT_UNIT): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=1,
+                        max=247,
+                        step=1,
+                        mode=selector.NumberSelectorMode.BOX,
+                    )
                 ),
             }
         )

@@ -30,5 +30,4 @@ class HoymilesEntity(CoordinatorEntity[HoymilesCoordinator]):
             manufacturer=MANUFACTURER,
             model=model,
             sw_version=str(sw) if sw is not None else None,
-            suggested_area="Garage",
         )
