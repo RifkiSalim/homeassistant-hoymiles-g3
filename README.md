@@ -8,6 +8,8 @@ Custom integration for **Hoymiles G3 hybrid** inverters (HIS / HIT-xxL-G3 and si
 
 Home Assistant loads custom integrations from **`config/custom_components/<domain>/`**. That is built into core: copy the files, restart, then **Settings → Devices & services → Add integration → Hoymiles**. No HACS required.
 
+**Not the same as “third-party app repositories.”** [Installing a third-party app repository](https://www.home-assistant.io/common-tasks/os/#installing-a-third-party-app-repository) under **Settings → Apps → Repositories** is for **Supervisor apps** (add-ons: Samba, File editor, etc.). This project is a **custom integration**, not an app; it will not appear in the app store.
+
 ### Manual (built-in HA)
 
 1. Download or clone https://github.com/RifkiSalim/homeassistant-hoymiles-g3
