@@ -1,5 +1,7 @@
 # Hoymiles (Home Assistant custom integration)
 
+> **Disclaimer:** Independent community project — **not** affiliated with Hoymiles Power Electronics Inc. Not official support or warranty. Trademarks and logos belong to their owners.
+
 Native **Home Assistant** integration for **Hoymiles G3 hybrid** inverters (HIS / HIT-xxL-G3 and similar), powered by the community register catalog in [hoymiles-g3-modbus-tcp](https://pypi.org/project/hoymiles-g3-modbus-tcp/) on PyPI.
 
 The integration polls **Modbus TCP** (FC04 input registers and optional FC03 holding registers). Behavior is the same for:

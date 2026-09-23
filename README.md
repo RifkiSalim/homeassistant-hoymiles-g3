@@ -1,5 +1,7 @@
 # Hoymiles G3 hybrid for Home Assistant
 
+> **Disclaimer:** This is an independent, community-built (“vibe coded”) project. It is **not** affiliated with, endorsed by, or supported by Hoymiles Power Electronics Inc. or any of its subsidiaries. “Hoymiles” and related logos are trademarks of their respective owners; logos are used here only to identify compatible hardware. Use at your own risk.
+
 Custom integration for **Hoymiles G3 hybrid** inverters (HIS / HIT-xxL-G3 and similar). Polls the inverter over **Modbus TCP** using the community [hoymiles-g3-modbus-tcp](https://pypi.org/project/hoymiles-g3-modbus-tcp/) register catalog.
 
 **Repository:** https://github.com/RifkiSalim/homeassistant-hoymiles-g3
